@@ -1,5 +1,6 @@
 # Echelon Software
 ![banner image](./assets/banner.png)
+<br>
 This is my attempt to study the new .NET Core Web API, also i'm using EFCore for persisting data in the database. <br>
 <br>
 ## Migrations
