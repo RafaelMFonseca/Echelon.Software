@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Echelon.Core.Models;
+namespace Echelon.Core.Entities;
 
 public class Machine
 {
