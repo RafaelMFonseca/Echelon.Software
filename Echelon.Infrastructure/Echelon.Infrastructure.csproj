@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>Echelon.Api</RootNamespace>
+        <RootNamespace>Echelon.Infrastructure</RootNamespace>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
@@ -22,9 +22,9 @@
         </PackageReference>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     </ItemGroup>
-    
-    <ItemGroup>
-        <ProjectReference Include="..\Echelon.Infrastructure\Echelon.Infrastructure.csproj" />
-    </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\Echelon.Core\Echelon.Core.csproj" />
+    </ItemGroup>
+    
 </Project>

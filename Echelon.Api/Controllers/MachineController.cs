@@ -25,7 +25,6 @@ namespace Echelon.Api.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            _logger.Log(LogLevel.Information, "something here!!");
             return Summaries;
         }
     }
