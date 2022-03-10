@@ -1,11 +1,24 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Echelon.Infrastructure.EntityFramework.Mappings;
 using Echelon.Core.Entities;
 
 namespace Echelon.Infrastructure.EntityFramework.Context;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+    {
+        Database.EnsureCreated();
+    }
 
-    public DbSet<Machine> Machines { get; set; }
+    /// <inheritdoc />
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+    }
+
+
+    public DbSet<House> Houses { get; set; }
 }
