@@ -15,9 +15,22 @@ public class HouseRepository : IHouseRepository
     }
 
     /// <inheritdoc />
-    public Task<List<House>?> GetAll()
+    public async Task<List<House>> GetAll()
     {
-        return _context.Houses.ToListAsync();
+        return await _context.Houses.ToListAsync();
+    }
+
+    /// <inheritdoc />
+    public async Task<House?> GetById(int id)
+    {
+        return await _context.Houses.Where(x => x.Id == id).SingleOrDefaultAsync();
+    }
+
+    /// <inheritdoc />
+    public async Task Create(House house, CancellationToken cancellationToken = default(CancellationToken))
+    {
+        await _context.Houses.AddAsync(house);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
     /// <inheritdoc />

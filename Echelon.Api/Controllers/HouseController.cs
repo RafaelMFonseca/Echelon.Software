@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Echelon.Api.Abstractions.Services;
+using Echelon.Core.Models;
 
 namespace Echelon.Api.Controllers;
 
@@ -19,8 +20,25 @@ public class HouseController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var houses = await _houseService.GetAll();
-        if (houses is null) return NotFound();
-        return Ok(houses);
+        var housesDto = await _houseService.GetAll();
+        if (housesDto is null) return NotFound();
+        return Ok(housesDto);
+    }
+
+    [HttpGet]
+    [Route("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var houseDto = await _houseService.GetById(id);
+        if (houseDto is null) return NotFound();
+        return Ok(houseDto);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Create(HouseDto houseDto)
+    {
+        var createHouseDto = await _houseService.Create(houseDto);
+        if (createHouseDto is null) return NotFound();
+        return Ok(createHouseDto);
     }
 }
