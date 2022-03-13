@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Echelon.Infrastructure.EntityFramework.Mappings;
 using Echelon.Core.Entities;
 
 namespace Echelon.Infrastructure.EntityFramework.Context;
@@ -19,6 +18,5 @@ public class AppDbContext : DbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
     }
 
-
-    public DbSet<House> Houses { get; set; }
+    public DbSet<User> Users { get; set; }
 }

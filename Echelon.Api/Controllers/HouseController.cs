@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Echelon.Api.Abstractions.Services;
-using Echelon.Core.Models;
+﻿using Echelon.Api.Abstractions.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Echelon.Api.Controllers;
 
@@ -9,36 +8,17 @@ namespace Echelon.Api.Controllers;
 public class HouseController : ControllerBase
 {
     private readonly ILogger<HouseController> _logger;
-    private readonly IHouseService _houseService;
+    private readonly IUserService _userService;
 
-    public HouseController(ILogger<HouseController> logger, IHouseService houseService)
+    public HouseController(ILogger<HouseController> logger, IUserService userService)
     {
         _logger = logger;
-        _houseService = houseService;
+        _userService = userService;
     }
 
-    [HttpGet]
-    public async Task<IActionResult> Index()
+    [HttpPost]
+    public async Task<IActionResult> Login()
     {
-        var housesDto = await _houseService.GetAll();
-        if (housesDto is null) return NotFound();
-        return Ok(housesDto);
-    }
-
-    [HttpGet]
-    [Route("{id}")]
-    public async Task<IActionResult> GetById(int id)
-    {
-        var houseDto = await _houseService.GetById(id);
-        if (houseDto is null) return NotFound();
-        return Ok(houseDto);
-    }
-
-    [HttpPut]
-    public async Task<IActionResult> Create(HouseDto houseDto)
-    {
-        var createHouseDto = await _houseService.Create(houseDto);
-        if (createHouseDto is null) return NotFound();
-        return Ok(createHouseDto);
+        return null;
     }
 }
