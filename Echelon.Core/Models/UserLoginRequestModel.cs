@@ -2,7 +2,7 @@
 
 namespace Echelon.Core.Models;
 
-public record UserLoginRequestModel(string Email, string Password);
+public record UserLoginRequestModel(string Email, string Password, bool RememberMe);
 
 public class UserLoginRequestModelValidator : AbstractValidator<UserLoginRequestModel>
 {

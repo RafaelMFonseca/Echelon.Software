@@ -26,5 +26,9 @@
     <ItemGroup>
         <ProjectReference Include="..\Echelon.Core\Echelon.Core.csproj" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="EntityFramework\Migrations\" />
+    </ItemGroup>
     
 </Project>

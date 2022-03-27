@@ -8,7 +8,7 @@ namespace Echelon.Api.Services;
 
 public class UserService : IUserService
 {
-    private readonly IRepository<User> _userRepository;
+    private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
 
     public UserService(IUserRepository userRepository, IMapper mapper)
@@ -20,7 +20,7 @@ public class UserService : IUserService
     /// <inheritdoc />
     public Task<UserLoginResponseModel> Login(UserLoginRequestModel request, CancellationToken cancellationToken = default)
     {
-        throw new NotImplementedException();
+        
     }
 
     /// <inheritdoc />
