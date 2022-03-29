@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Echelon.Infrastructure.EntityFramework.Context;
 using Echelon.Api.Abstractions.Repositories;
 using Echelon.Api.Abstractions.Services;
+using Echelon.Api.Abstractions.Security;
+using Echelon.Api.Security;
 using Echelon.Api.Repositories;
 using Echelon.Api.Services;
 using FluentValidation;
@@ -13,6 +15,7 @@ builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlite(builder.Configu
 /* DI */
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPasswordVerifier, PasswordVerifier>();
 
 /* Third party libraries */
 const string coreApplicationAssemblyName = "Echelon.Core";
